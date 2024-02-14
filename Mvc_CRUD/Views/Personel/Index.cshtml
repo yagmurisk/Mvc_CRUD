@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Mvc_CRUD.Models.Personel>
+
+@{
+  ViewBag.Title = "Personel Listesi";
+}
+
+<h2> Personel Listesi </h2>
+
+<a class="btn btn-success" asp-controller="Personel" asp-action="Create"> Yeni Personel</a>
+<br />
+<br />
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>İşlemler</th>
+      <th>@Html.DisplayNameFor(model => model.Ad)</th>
+      <th>@Html.DisplayNameFor(model => model.Soyad)</th>
+      <th>@Html.DisplayNameFor(model => model.DogumYili)</th>
+      <th>@Html.DisplayNameFor(model => model.IseBaslamaTarihi)</th>
+      <th>@Html.DisplayNameFor(model => model.AktifString)</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>
+          <a class="btn btn-success btn-sm" asp-controller="Personel" asp-action="Edit" asp-route-id="@item.Id">Değiştir</a>
+          <a class="btn btn-info btn-sm" asp-controller="Personel" asp-action="Detail" asp-route-id="@item.Id">İncele</a>
+          <a class="btn btn-danger btn-sm" asp-controller="Personel" asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+          <a class="btn btn-secondary btn-sm" asp-controller="Personel" asp-action="ChangeActive" asp-route-id="@item.Id">Aktif</a>
+        </td>
+        <td>@Html.DisplayNameFor(model => item.Ad)   </td>
+        <td>@Html.DisplayNameFor(model => item.Soyad)  </td>
+        <td>@Html.DisplayNameFor(model => item.DogumYili) </td>
+        <td>@Html.DisplayNameFor(model => item.IseBaslamaTarihi) </td>
+        <td>@Html.DisplayNameFor(model => item.AktifString) </td>
+        <td>
+          @if(item.Aktif)
+          {
+            <button type="button" class="btn btn-success btn-sm">@Html.DisplayFor(ModelItem => item.AktifString) </button>
+          }
+          else
+          {
+            <button type="button" class="btn btn-danger btn-sm">@Html.DisplayFor(ModelItem => item.AktifString) </button>
+          }
+        </td>
+      </tr>
+
+
+    }
+
+  </tbody>
+
+
+</table>
