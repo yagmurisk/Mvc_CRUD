@@ -1,0 +1,54 @@
+﻿@model Mvc_CRUD.Models.Personel
+
+@{
+  ViewBag.Title = "Personel Ekle";
+}
+
+<div class="card">
+  <div class="card-header">
+   <h3>Yeni Personel Ekle</h3>
+  </div>
+  <div class="card-body">
+    <div>
+      <form asp-controller="Personel" asp-action="Create" method="post">
+        <div class="mb-3">
+         <label asp-for="Ad" class="form-label"></label>
+         <input asp-for="Ad" class="form-control"/>
+         <span asp-validation-for="Ad" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+          <label asp-for="Soyad" class="form-label"></label>
+          <input asp-for="Soyad" class="form-control" />
+          <span asp-validation-for="Soyad" class="text-danger"></span>
+        </div class="mb-3">
+        <div>
+          <label asp-for="DogumYili" class="form-label"></label>
+          <input asp-for="DogumYili" class="form-control" />
+          <span asp-validation-for="DogumYili" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+          <label asp-for="SicilNo" class="form-label"></label>
+          <input asp-for="SicilNo" class="form-control" />
+          <span asp-validation-for="SicilNo" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+          <label asp-for="IseBaslamaTarihi" class="form-label"></label>
+          <input asp-for="IseBaslamaTarihi" class="form-control" />
+          <span asp-validation-for="IseBaslamaTarihi" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3"> 
+          <label class="form-check-label">
+            <input asp-for="Aktif" class="form-check-control" />
+            @Html.DisplayNameFor(model => model.Aktif)
+          </label>
+        </div>
+
+       <a class="btn btn-secondary" asp-controller="Personel" asp-action="Index"> 
+         <b class="form-control-color text-black">Listeye Geri Dön </b></a>
+        <button type="submit" class="btn btn-success">İşlemleri Kaydet</button>
+     
+      </form>
+    </div>
+  </div>
+</div>

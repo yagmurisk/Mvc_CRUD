@@ -30,6 +30,10 @@ namespace Mvc_CRUD.Models
     public int DogumYili { get; set; }
 
 
+    [Display(Name = "Personel Sicil Numarası")]
+    [MinLength(3, ErrorMessage = "{0} {1} karakterden kısa olamaz.")]
+    public string SicilNo { get; set; }
+
     [Display(Name = "İşe Giriş Tarihi")]
     public DateTime IseBaslamaTarihi { get; set; }
 

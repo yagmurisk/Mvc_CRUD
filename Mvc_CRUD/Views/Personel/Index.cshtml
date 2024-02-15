@@ -13,6 +13,7 @@
   <thead>
     <tr>
       <th>İşlemler</th>
+      <th>@Html.DisplayNameFor(model => model.SicilNo)</th>
       <th>@Html.DisplayNameFor(model => model.Ad)</th>
       <th>@Html.DisplayNameFor(model => model.Soyad)</th>
       <th>@Html.DisplayNameFor(model => model.DogumYili)</th>
@@ -30,11 +31,12 @@
           <a class="btn btn-danger btn-sm" asp-controller="Personel" asp-action="Delete" asp-route-id="@item.Id">Sil</a>
           <a class="btn btn-secondary btn-sm" asp-controller="Personel" asp-action="ChangeActive" asp-route-id="@item.Id">Aktif</a>
         </td>
-        <td>@Html.DisplayNameFor(model => item.Ad)   </td>
-        <td>@Html.DisplayNameFor(model => item.Soyad)  </td>
-        <td>@Html.DisplayNameFor(model => item.DogumYili) </td>
-        <td>@Html.DisplayNameFor(model => item.IseBaslamaTarihi) </td>
-        <td>@Html.DisplayNameFor(model => item.AktifString) </td>
+        <td>@Html.DisplayFor(ModelItem => item.SicilNo) </td>
+        <td>@Html.DisplayFor(ModelItem => item.Ad)   </td>
+        <td>@Html.DisplayFor(ModelItem => item.Soyad)  </td>
+        <td>@Html.DisplayFor(ModelItem => item.DogumYili) </td>
+        <td>@Html.DisplayFor(ModelItem => item.IseBaslamaTarihi) </td>
+        <td>@Html.DisplayFor(ModelItem => item.AktifString) </td>
         <td>
           @if(item.Aktif)
           {

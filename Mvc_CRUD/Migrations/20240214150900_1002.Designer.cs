@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mvc_CRUD.Context;
 
@@ -11,9 +12,11 @@ using Mvc_CRUD.Context;
 namespace Mvc_CRUD.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240214150900_1002")]
+    partial class _1002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +47,8 @@ namespace Mvc_CRUD.Migrations
                     b.Property<DateTime>("IseBaslamaTarihi")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SicilNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SicilNo")
+                        .HasColumnType("int");
 
                     b.Property<string>("Soyad")
                         .IsRequired()
